@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atividades da Primeira Semana</h1>
+
+    <p>1 - Implemente um script JavaScript que solicite ao usuário a entrada de um
+    dado via teclado. Em seguida, pergunte se o usuário deseja verificar o tipo do
+    dado informado. Caso o usuário confirme escreva no corpo da página o tipo
+    do dado (Number, String, etc.) caso contrário escreva a mensagem: “Obrigado
+    por visitar esta página”.</p>
+
+    <script>
+        let dado = prompt("1) Digite um dado qualquer (número, texto...):","");
+        
+
+        numero = parseInt(dado);
+
+        let tipostring = typeof dado;
+
+        let tiponumber = typeof numero;
+
+        if(confirm("Deseja verificar o tipo do dado informado?")){
+            if (dado === null || dado === ''){
+                alert("Não foi digitado nenhum dado");
+                document.write("Não foi digitado nenhum dado");
+            } else {
+                if (isNaN(dado)){
+                    alert("O dado " + dado + " digitado é do tipo: " + tipostring);
+                    document.write("O dado " + dado + " digitado é do tipo: " + tipostring);
+                } else {
+                    alert("O dado " + dado + " digitado é do tipo: " + tiponumber);
+                    document.write("O dado " + dado + " digitado é do tipo: " + tiponumber);
+                }
+            }
+
+        } else {
+            alert("Obrigado por visitar esta página");
+            document.write("Obrigado por visitar esta página");
+        }
+
+    </script>
+
+    <p>2 - Implemente um script JavaScript que solicite ao usuário um número inteiro
+    positivo. Assim que o usuário digitar um valor válido informe em uma janela
+    de alerta se o número é ou não primo.</p>
+
+    <script>
+        function Primo(n) {          
+            // Verifica se o número é divisível por qualquer número além de 1 e ele mesmo
+            //A função Math.sqrt(n) retorna a raiz quadrada de um número
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return "não é primo";
+                }
+            }
+            //Se não foi encontrado nenhum divisor além de 1 e ele mesmo, então é primo
+            return "é primo";
+        }
+        let n = prompt("2) Digite um número inteiro positivo:","");
+        if (n < 0 || isNaN(n) || n % 1 > 0 || n === null || n === '') {
+                alert("Número inválido. Por favor, digite um número inteiro positivo.");
+                document.write("Número inválido. Por favor, digite um número inteiro positivo.");
+            } else {    
+                alert("O número " + n + " é um número inteiro positivo e " + Primo(n));
+                document.write("O número " + n + " é um número inteiro positivo e " + Primo(n));
+            }
+    </script>
+
+    <p>3 - Implemente um script JavaScript que solicite ao usuário um número inteiro
+    positivo. Assim que o usuário digitar um valor válido informe em uma janela
+    de alerta se o número é par ou ímpar.</p> 
+
+    <script>
+        function ParOuImpar(num) {
+            if(num % 2 === 0) {
+                return "par";
+            } else {
+                return "ímpar";
+            }
+        }
+        let num = prompt("3) Digite um número inteiro positivo:","");
+        if (num < 0 || isNaN(num) || num % 1 > 0 || num === null || num === '') {
+            alert("Número inválido. Por favor, digite um número inteiro positivo.");
+            document.write("Número inválido. Por favor, digite um número inteiro positivo.");
+        } else {
+            alert("O número " + num + " é um número inteiro positivo e é " + ParOuImpar(num));
+            document.write("O número " + num + " é um número inteiro positivo e é " + ParOuImpar(num));
+        }
+    </script>
+
+    <p>4 - Implemente um script JavaScript que solicite ao usuário um número inteiro
+        positivo. Assim que o usuário digitar um valor válido calcule o fatorial do
+        mesmo e exiba o resultado em uma janela de alerta.</p>
+
+    <script>
+        let numero = prompt("4) Digite um número inteiro positivo:","");
+        if (numero < 0 || isNaN(numero) || n % 1 > 0 || numero === null || numero === '') {
+            alert("Número inválido. Por favor, digite um número inteiro positivo.");
+            document.write("Número inválido. Por favor, digite um número inteiro positivo.");
+        } else {
+            let fatorial = 1;
+            for (let i = 1; i <= numero; i=i+1){
+                fatorial = fatorial * i;
+            }
+            alert("O número " + numero + " é um número inteiro positivo e seu fatorial é " + fatorial);
+            document.write("O número " + numero + " é um número inteiro positivo e seu fatorial é " + fatorial);
+        }
+    </script>
+    <br>
+    <button><a href="index.html">Voltar</a></button>
+     
+</body>
+</html>
