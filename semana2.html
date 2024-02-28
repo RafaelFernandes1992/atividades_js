@@ -3,12 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>2ª Semana - Rafael</title>
 </head>
 <body>
-    <h1></h1>
+    <h1>Atividades da Segunda Semana - 27/02/2024</h1>
+
+    <p>1. Implemente um script com um array cujos valores
+    sejam adicionados dinamicamente pelo usuário
+    utilizando-se formulário. A cada nova inserção exiba
+    todos os dados cadastrados em ordem alfabética em
+    uma lista ordenada do html.</p>
+
+    <form id="arrayForm">
+        <label for="valor">Valor</label>
+        <input type="text" id="valor" name="valor">
+        <button type="button" onclick="adiciona()">Adicionar</button>
+    </form>
+
     <br>
+
+    <h3>Lista ordenada</h3>
+    <ul id="valoresArray">
+    </ul>  
+
+    <br>
+
     <button><a href="index.html">Voltar</a></button>
     
+    <script>
+        
+        let arrayValores = [];
+
+        function adiciona() {
+            let novoValor = document.getElementById("valor").value;
+            if (novoValor.trim() !== "") {
+                arrayValores.push(novoValor);
+                console.log(arrayValores);
+                atualizarLista();
+            }
+            document.getElementById("valor").value = ""; // Limpa o campo input 
+        }
+
+        function atualizarLista() {
+            let lista = document.getElementById("valoresArray");
+            lista.innerHTML = ""; // Limpa a lista antes de atualizar
+            arrayValores.sort();
+            for (var i = 0; i < arrayValores.length; i = i + 1) {
+                let itemLista = document.createElement("li");
+                itemLista.textContent = arrayValores[i];
+                lista.appendChild(itemLista);
+            };
+        }
+
+    </script>
 </body>
 </html>
