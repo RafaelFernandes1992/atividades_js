@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>1ª Semana - Rafael</title>
 </head>
 <body>
-    <h1>Atividades da Primeira Semana</h1>
+    <h1>Atividades da Primeira Semana - 20/02/2024</h1>
 
     <p>1 - Implemente um script JavaScript que solicite ao usuário a entrada de um
     dado via teclado. Em seguida, pergunte se o usuário deseja verificar o tipo do
@@ -16,6 +16,7 @@
 
     <script>
         let dado = prompt("1) Digite um dado qualquer (número, texto...):","");
+        console.log(dado);
         
 
         numero = parseInt(dado);
@@ -61,7 +62,11 @@
             //Se não foi encontrado nenhum divisor além de 1 e ele mesmo, então é primo
             return "é primo";
         }
+
         let n = prompt("2) Digite um número inteiro positivo:","");
+
+        console.log(n);
+
         if (n < 0 || isNaN(n) || n % 1 > 0 || n === null || n === '') {
                 alert("Número inválido. Por favor, digite um número inteiro positivo.");
                 document.write("Número inválido. Por favor, digite um número inteiro positivo.");
@@ -83,7 +88,11 @@
                 return "ímpar";
             }
         }
+
         let num = prompt("3) Digite um número inteiro positivo:","");
+
+        console.log(num);
+
         if (num < 0 || isNaN(num) || num % 1 > 0 || num === null || num === '') {
             alert("Número inválido. Por favor, digite um número inteiro positivo.");
             document.write("Número inválido. Por favor, digite um número inteiro positivo.");
@@ -91,6 +100,7 @@
             alert("O número " + num + " é um número inteiro positivo e é " + ParOuImpar(num));
             document.write("O número " + num + " é um número inteiro positivo e é " + ParOuImpar(num));
         }
+
     </script>
 
     <p>4 - Implemente um script JavaScript que solicite ao usuário um número inteiro
@@ -99,6 +109,9 @@
 
     <script>
         let numero = prompt("4) Digite um número inteiro positivo:","");
+
+        console.log(numero);
+        
         if (numero < 0 || isNaN(numero) || n % 1 > 0 || numero === null || numero === '') {
             alert("Número inválido. Por favor, digite um número inteiro positivo.");
             document.write("Número inválido. Por favor, digite um número inteiro positivo.");
