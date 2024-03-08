@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3ª Semana - Rafael</title>
+</head>
+<body>
+    <h1>Atividades da Terceira Semana - 05/03/2024</h1>
+
+
+    <p>1. Implemente um script JavaScript que exiba a data atual no
+        formato:
+        Quarta-feira, 15 de fevereiro de 2023
+    </p>
+
+    <button onclick="ver1()">Ver resultado</button>
+    <p id="res1" style="color: brown;"></p>
+
+    <p>2. Pesquise a utilização do método setTimeout() e implemente
+        um relógio que atualize o horário a cada segundo:
+    </p>
+
+    <button onclick="ver2()">Ver resultado</button>
+    <p id="res2" style="color: brown;"></p>
+
+    <p>3. Implemente um script que leia uma palavra ou frase de um
+        campo de texto e exiba em uma janela de alert se o texto é ou
+        não um palíndromo.
+    </p>
+
+    <form action="">
+        <label for="">Digite uma frase:</label>
+        <input type="text" id="frase">
+    </form>
+    
+    <br>
+    <button onclick="ver3()">Ver resultado</button>
+    <p id="res3a" style="color: brown;"></p>
+    <p id="res3b" style="color: brown;"></p>
+    <p id="res3c" style="color: brown;"></p>
+
+    <br>
+
+    <button><a href="index.html">Voltar</a></button>
+
+    <script type="text/javascript">
+
+    // vetor onde informo os nomes dos dias da semana (sendo o indice 0 domingo... e 6 sábado)
+    let diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+
+    // vetor onde informo os nomes dos meses (sendo 0 Janeiro e 11 dezembro)
+    let meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
+    // instacio de Date para obter a data padrão
+    let data = new Date();
+    console.log(data);
+
+    // Obtém o dia da semana (0-6)
+    let diaSemana = data.getDay();
+    console.log(diaSemana);
+
+    // Obtém o dia do mês (1-31)
+    let diaMes = data.getDate();
+    console.log(diaMes);
+
+    // Obtém o mês (0-11)
+    let mes = data.getMonth();
+    console.log(mes);
+
+    // Obtém o ano (ex: 2023)
+    let ano = data.getFullYear();
+    console.log(ano);
+
+    let dataFormatada = diasSemana[diaSemana] + ", " + diaMes + " de " + meses[mes] + " de " + ano;
+    console.log(dataFormatada);
+    //alert(dataFormatada);
+
+    function ver1() {
+    document.getElementById("res1").innerHTML = dataFormatada;
+    }
+
+
+    //alert(dataFormatada);
+
+
+    function ver2() {
+
+    let agora = new Date();
+
+    let hora = agora.getHours();
+    //console.log(hora);
+
+    let minuto = agora.getMinutes();
+    //console.log(minuto);
+
+    let segundo = agora.getSeconds();
+    //console.log(segundo);
+
+    let horaFormatada = hora + ":" + minuto + ":" + segundo;
+    console.log(horaFormatada);
+
+    document.getElementById("res2").innerHTML = horaFormatada;
+    setTimeout(ver2, 1000);
+    }
+
+    function ver3() {
+
+
+        let frase = document.getElementById("frase").value;
+
+        let aocontrario = frase.split('').reverse().join('');
+
+        let palindromo = "";
+
+        if (frase == aocontrario){
+            palindromo = "Sim"
+        } else {
+            palindromo = "Não"
+        };
+
+        document.getElementById("res3a").innerHTML = "Frase: " + frase;
+        document.getElementById("res3b").innerHTML = "Frase ao contrário: " + aocontrario;
+        document.getElementById("res3c").innerHTML = "É um palindromo? " + palindromo;
+
+
+    }
+
+
+
+
+
+    </script>
+
+</body>
+</html>
