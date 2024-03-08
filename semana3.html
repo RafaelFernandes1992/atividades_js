@@ -16,6 +16,7 @@
 
     <button onclick="ver1()">Ver resultado</button>
     <p id="res1" style="color: brown;"></p>
+    <hr>
 
     <p>2. Pesquise a utilização do método setTimeout() e implemente
         um relógio que atualize o horário a cada segundo:
@@ -23,6 +24,7 @@
 
     <button onclick="ver2()">Ver resultado</button>
     <p id="res2" style="color: brown;"></p>
+    <hr>
 
     <p>3. Implemente um script que leia uma palavra ou frase de um
         campo de texto e exiba em uma janela de alert se o texto é ou
@@ -30,7 +32,7 @@
     </p>
 
     <form action="">
-        <label for="">Digite uma frase:</label>
+        <label for="">Digite uma palavra/frase:</label>
         <input type="text" id="frase">
     </form>
     
@@ -39,6 +41,7 @@
     <p id="res3a" style="color: brown;"></p>
     <p id="res3b" style="color: brown;"></p>
     <p id="res3c" style="color: brown;"></p>
+    <hr>
 
     <br>
 
@@ -109,18 +112,29 @@
 
         let frase = document.getElementById("frase").value;
 
-        let aocontrario = frase.split('').reverse().join('');
+        // split('') separa cada letra da string e coloca em um array
+        let array = frase.split('');
+
+        // reverse() coloca cada letra do array ao contrário
+        let arrayaocontrario = array.reverse();
+        
+        let fraseaocontrario = "";
+
+        // concatena as letras do array para uma string
+        for (var i = 0; i < arrayaocontrario.length; i++) {
+            fraseaocontrario += arrayaocontrario[i];
+        }
 
         let palindromo = "";
 
-        if (frase == aocontrario){
+        if (frase == fraseaocontrario){
             palindromo = "Sim"
         } else {
             palindromo = "Não"
         };
 
-        document.getElementById("res3a").innerHTML = "Frase: " + frase;
-        document.getElementById("res3b").innerHTML = "Frase ao contrário: " + aocontrario;
+        document.getElementById("res3a").innerHTML = "Frase/palavra: " + frase;
+        document.getElementById("res3b").innerHTML = "Frase/palavra ao contrário: " + fraseaocontrario;
         document.getElementById("res3c").innerHTML = "É um palindromo? " + palindromo;
 
 
@@ -131,6 +145,10 @@
 
 
     </script>
+
+    <br><br>
+
+    <p>Aluno: <b>Rafael Fernandes de Melo Lopes</b></p>
 
 </body>
 </html>
