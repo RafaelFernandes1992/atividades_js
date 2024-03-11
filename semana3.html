@@ -57,26 +57,26 @@
 
     // instacio de Date para obter a data padrão
     let data = new Date();
-    console.log(data);
+    //console.log(data);
 
     // Obtém o dia da semana (0-6)
     let diaSemana = data.getDay();
-    console.log(diaSemana);
+    //console.log(diaSemana);
 
     // Obtém o dia do mês (1-31)
     let diaMes = data.getDate();
-    console.log(diaMes);
+    //console.log(diaMes);
 
     // Obtém o mês (0-11)
     let mes = data.getMonth();
-    console.log(mes);
+    //console.log(mes);
 
     // Obtém o ano (ex: 2023)
     let ano = data.getFullYear();
-    console.log(ano);
+    //console.log(ano);
 
     let dataFormatada = diasSemana[diaSemana] + ", " + diaMes + " de " + meses[mes] + " de " + ano;
-    console.log(dataFormatada);
+    //console.log(dataFormatada);
     //alert(dataFormatada);
 
     function ver1() {
@@ -112,6 +112,8 @@
 
         let frase = document.getElementById("frase").value;
 
+        frase = frase.toUpperCase();
+
         // split('') separa cada letra da string e coloca em um array
         let array = frase.split('');
 
@@ -136,12 +138,7 @@
         document.getElementById("res3a").innerHTML = "Frase/palavra: " + frase;
         document.getElementById("res3b").innerHTML = "Frase/palavra ao contrário: " + fraseaocontrario;
         document.getElementById("res3c").innerHTML = "É um palindromo? " + palindromo;
-
-
     }
-
-
-
 
 
     </script>
