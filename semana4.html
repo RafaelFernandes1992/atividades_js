@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4ª Semana - Rafael</title>
+
+    <style>
+
+  
+body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    fieldset {
+        border: 1px solid;
+        color: rgb(61, 59, 59);
+        max-width: 600px;
+        margin: 0 auto; /* Isso centraliza o elemento */
+    }
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        padding: 10px;
+        font-size: 15px;
+        border: none;
+        border-bottom: 1px solid rgb(138, 136, 136);
+        outline: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <h1>Atividades da Quarta Semana - 12/03/2024</h1>
+<fieldset>
+    <legend><b>Formulário de Cadastro</b></legend>
+    <form action="" onsubmit="coletaFormulario(); return false;">
+        <br>
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="fulano.com"> 
+            <br>
+            <label for="dt_nasc">Data Nascimento:</label>
+            <input type="date" id="dt_nasc"> 
+            <br>
+            <label for="tel_fixo">Telefone Fixo:</label>
+            <input type="text" id="tel_fixo" placeholder="(99)9999-9999">
+            <br>
+            <label for="tel_celular">Telefone Celular:</label>
+            <input type="text" id="tel_celular" placeholder="(99)99999-9999"> 
+            <br>
+            <div>
+                <input type="radio" id="prof" name="tipo" onclick="escolheTipo()"> 
+                <label for="prof">Professor</label>
+            </div>
+            <div>
+                <input type="radio" id="aluno" name="tipo" onclick="escolheTipo()"> 
+                <label for="aluno">Aluno</label> 
+            </div>
+            <br>
+            <label for="matr">Matrícula:</label>
+            <input type="text" id="matr" placeholder="Digite sua matrícula">
+            <br>
+
+            <label for="curso" id="cursoLabel" class="hidden">Curso:</label>
+            <input type="text" id="curso" placeholder="Digite seu curso" class="hidden">
+            
+            <label for="area" id="areaLabel" class="hidden">Área:</label>
+            <input type="text" id="area" placeholder="Digite sua área de atuação" class="hidden">
+            <div id="brDiv"></div>
+            <label for="lattes" id="lattesLabel" class="hidden">Lattes:</label>
+            <input type="text" id="lattes" placeholder="Digite aqui o endereço para o seu Lattes" class="hidden">
+            
+        </div>
+        <br>
+        <button type="submit">Enviar</button>
+        <button type="button" onclick="reloadPage()">Redefinir</button>
+
+
+    </form>
+</fieldset>
+
+<script>
+    function escolheTipo() {
+        var profChecked = document.getElementById('prof').checked;
+        var cursoLabel = document.getElementById('cursoLabel');
+        var cursoInput = document.getElementById('curso');
+        var areaLabel = document.getElementById('areaLabel');
+        var areaInput = document.getElementById('area');
+        var lattesLabel = document.getElementById('lattesLabel');
+        var lattesInput = document.getElementById('lattes');
+        var brDiv = document.getElementById("brDiv");
+
+        if (profChecked) {
+            cursoLabel.classList.add('hidden');
+            cursoInput.classList.add('hidden');
+            areaLabel.classList.remove('hidden');
+            areaInput.classList.remove('hidden');
+            lattesLabel.classList.remove('hidden');
+            lattesInput.classList.remove('hidden');
+            brDiv.innerHTML = "<br>"; // Adiciona um <br> após o último input
+
+        } else {
+            cursoLabel.classList.remove('hidden');
+            cursoInput.classList.remove('hidden');
+            areaLabel.classList.add('hidden');
+            areaInput.classList.add('hidden');
+            lattesLabel.classList.add('hidden');
+            lattesInput.classList.add('hidden');
+            brDiv.innerHTML = ""; // Remove o <br> se o botão de opção "Professor" não estiver selecionado
+        }
+    }
+
+
+    //classe pessoa
+    function Pessoa() {
+        var nome, email, data_nascimento, telefone_fixo, telefone_celular, matricula;
+        this.setNome = function(vNome) {
+            nome = vNome;
+        }
+        this.getNome = function() {
+            return nome;
+        }
+        this.setEmail = function(vEmail) {
+            email = vEmail;
+        }
+        this.getEmail = function() {
+            return email;
+        }
+        this.setNasc = function(vNasc) {
+            data_nascimento = vNasc;
+        }
+        this.getNasc = function() {
+            return data_nascimento;
+        }
+        this.setTfixo = function(vTfixo) {
+            telefone_fixo = vTfixo;
+        }
+        this.getTfixo = function() {
+            return telefone_fixo;
+        }
+        this.setTcel = function(vTcel) {
+            telefone_celular = vTcel;
+        }
+        this.getTcel = function() {
+            return telefone_celular;
+        }
+        this.setMatr = function(vMatr) {
+            matricula = vMatr;
+        }
+        this.getMatr = function() {
+            return matricula;
+        }
+    }
+    //classe professor
+    function Professor() {
+        Pessoa.call(this); // Chama o método pai
+        var area_atuacao, link_lattes;
+
+        var tipo = 'Professor';
+
+        this.setArea = function(vArea) {
+            area_atuacao = vArea;
+        }
+        this.getArea = function() {
+            return area_atuacao;
+        }
+        this.setLattes = function(vLattes) {
+            link_lattes = vLattes;
+        }
+        this.getLattes = function() {
+            return link_lattes;
+        }
+        this.getTipo = function() {
+        return tipo;
+        }
+    }
+    //classe aluno
+    function Aluno() {
+        Pessoa.call(this); // Chama o método pai
+        var curso;
+        var tipo = 'Aluno';
+        this.setCur = function(vCur) {
+            curso = vCur;
+        }
+        this.getCur = function() {
+            return curso;
+        }
+        this.getTipo = function() {
+        return tipo;
+        }
+    }
+
+    function coletaFormulario() {
+    // Coletando dados do formulário
+    var nome = document.getElementById('nome').value;
+    var email = document.getElementById('email').value;
+    var dt_nasc = document.getElementById('dt_nasc').value;
+    var tel_fixo = document.getElementById('tel_fixo').value;
+    var tel_celular = document.getElementById('tel_celular').value;
+    var matricula = document.getElementById('matr').value;
+    var tipo = document.querySelector('input[name="tipo"]:checked').id;
+    var area = document.getElementById('area').value;
+    var lattes = document.getElementById('lattes').value;
+    var curso = document.getElementById('curso').value;
+
+    // Criando instância da classe correspondente com base no tipo selecionado
+    var pessoa;
+    if (tipo === 'prof') {
+        var professor = new Professor();
+        professor.setNome(nome);
+        professor.setEmail(email);
+        professor.setNasc(dt_nasc);
+        professor.setTfixo(tel_fixo);
+        professor.setTcel(tel_celular);
+        professor.setMatr(matricula);
+        professor.setArea(area);
+        professor.setLattes(lattes);
+        pessoa = professor;
+    } else if (tipo === 'aluno') {
+        var aluno = new Aluno();
+        aluno.setNome(nome);
+        aluno.setEmail(email);
+        aluno.setNasc(dt_nasc);
+        aluno.setTfixo(tel_fixo);
+        aluno.setTcel(tel_celular);
+        aluno.setMatr(matricula);
+        aluno.setCur(curso);
+        pessoa = aluno;
+    }
+
+    // Exibindo os dados no console
+    console.log('---------------------------------');
+    console.log('Dados digitados no formulário');
+    console.log('Nome:', pessoa.getNome());
+    console.log('Email:', pessoa.getEmail());
+    console.log('Data de Nascimento:', pessoa.getNasc());
+    console.log('Telefone Fixo:', pessoa.getTfixo());
+    console.log('Telefone Celular:', pessoa.getTcel());
+    console.log('Tipo de cadastro:', pessoa.getTipo());
+    console.log('Matrícula:', pessoa.getMatr());
+    if (tipo === 'prof') {
+        console.log('Área de Atuação:', pessoa.getArea());
+        console.log('Link Lattes:', pessoa.getLattes());
+    } else if (tipo === 'aluno') {
+        console.log('Curso:', pessoa.getCur());
+    }
+}
+
+function reloadPage() {
+        // Recarregar a página
+        location.reload();
+    }
+
+</script>
+<br>
+<button><a href="index.html">Voltar</a></button>
+
+<br>
+<p>Aluno: <b>Rafael Fernandes de Melo Lopes</b></p>
+</body>
+</html>
