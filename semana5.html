@@ -1,0 +1,238 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>5ª Semana - Rafael</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <style>
+            .container-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; 
+            }
+        </style>
+
+    </head>
+
+
+
+    <body>
+        <h1>Atividades da Quinta Semana - 19/03/2024</h1>
+        <br>
+
+        <div class="container-card">
+
+        </div>
+
+    <br>
+    <a class="btn btn-primary" href="index.html" role="button">Voltar</a>
+    <br>
+    <br>
+    <p>Aluno: <b>Rafael Fernandes de Melo Lopes</b></p>
+
+
+    <script>
+
+    var newDiv = document.createElement('div');
+    newDiv.className = 'card';
+    newDiv.style.width = '22rem';
+
+    var title = document.createElement('h6');
+    title.className = 'card-title text-center';
+    title.textContent = 'Total';
+
+    var alerta = document.createElement('div');
+    alerta.className = 'alert alert-dark text-center';
+    alerta.setAttribute('role', 'alert');
+    alerta.setAttribute('id', 'total');
+
+    var contentDiv = document.createElement('div');
+    contentDiv.className = 'card-body';
+    contentDiv.appendChild(title);
+    contentDiv.appendChild(alerta);
+
+    // elementos do homem
+
+    var card = document.createElement('div');
+    card.className = 'card mb-3';
+    contentDiv.appendChild(card);
+
+    var cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+    card.appendChild(cardBody);
+
+    var homemImg = document.createElement("img");
+    homemImg.setAttribute("src","homem.png" );
+    cardBody.appendChild(homemImg);
+
+    var row = document.createElement('div');
+    row.className = 'row';
+    cardBody.appendChild(row);
+
+    var row = document.createElement('div');
+    row.className = 'col-md-12';
+    cardBody.appendChild(row);
+
+    var cardTitle = document.createElement('h6');
+    cardTitle.className = 'card-title text-center';
+    cardTitle.textContent = 'Homens';
+    cardBody.appendChild(cardTitle);
+
+    var cardAlert = document.createElement('div');
+    cardAlert.className = 'alert alert-dark text-center';
+    cardAlert.setAttribute('role', 'alert');
+    cardAlert.setAttribute('id', 'quantidadeHomem');
+    cardBody.appendChild(cardAlert);
+
+    var svgmais = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgmais.setAttribute('style', 'color: ' + 'green');
+    svgmais.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svgmais.setAttribute('width', '46');
+    svgmais.setAttribute('height', '46');
+    svgmais.setAttribute('fill', 'currentColor');
+    svgmais.setAttribute('class', 'bi ' + 'bi-plus-circle-fill');
+    svgmais.setAttribute('viewBox', '0 0 16 16');
+
+    var path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path1.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z');
+    path1.setAttribute('id', 'homemmais');
+    svgmais.appendChild(path1);
+    row.appendChild(svgmais);
+
+    var svgmenos = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgmenos.setAttribute('style', 'color: ' + 'red');
+    svgmenos.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svgmenos.setAttribute('width', '32');
+    svgmenos.setAttribute('height', '32');
+    svgmenos.setAttribute('fill', 'currentColor');
+    svgmenos.setAttribute('class', 'bi ' + 'bi-dash-circle-fill');
+    svgmenos.setAttribute('viewBox', '0 0 16 16');
+
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z');
+    path.setAttribute('id', 'homemmenos');
+    svgmenos.appendChild(path);
+    row.appendChild(svgmenos);
+
+    //elementos da mulher
+
+    var card = document.createElement('div');
+    card.className = 'card mb-3';
+    contentDiv.appendChild(card);
+
+    var cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+    card.appendChild(cardBody);
+
+    var mulherImg = document.createElement("img");
+    mulherImg.setAttribute("src","mulher.png" );
+    cardBody.appendChild(mulherImg);
+
+    var row = document.createElement('div');
+    row.className = 'row';
+    cardBody.appendChild(row);
+
+    var row = document.createElement('div');
+    row.className = 'col-md-12';
+    cardBody.appendChild(row);
+
+    var cardTitle = document.createElement('h6');
+    cardTitle.className = 'card-title text-center';
+    cardTitle.textContent = 'Mulheres';
+    cardBody.appendChild(cardTitle);
+
+    var cardAlert = document.createElement('div');
+    cardAlert.className = 'alert alert-dark text-center';
+    cardAlert.setAttribute('role', 'alert');
+    cardAlert.setAttribute('id', 'quantidadeMulher');
+    cardBody.appendChild(cardAlert);
+
+    var svgmaismulher = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgmaismulher.setAttribute('style', 'color: ' + 'green');
+    svgmaismulher.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svgmaismulher.setAttribute('width', '46');
+    svgmaismulher.setAttribute('height', '46');
+    svgmaismulher.setAttribute('fill', 'currentColor');
+    svgmaismulher.setAttribute('class', 'bi ' + 'bi-plus-circle-fill');
+    svgmaismulher.setAttribute('viewBox', '0 0 16 16');
+
+    var path1mulher = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path1mulher.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z');
+    path1mulher.setAttribute('id', 'mulhermais');
+    svgmaismulher.appendChild(path1mulher);
+    row.appendChild(svgmaismulher);
+
+    var svgmenosmulher = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgmenosmulher.setAttribute('style', 'color: ' + 'red');
+    svgmenosmulher.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svgmenosmulher.setAttribute('width', '32');
+    svgmenosmulher.setAttribute('height', '32');
+    svgmenosmulher.setAttribute('fill', 'currentColor');
+    svgmenosmulher.setAttribute('class', 'bi ' + 'bi-dash-circle-fill');
+    svgmenosmulher.setAttribute('viewBox', '0 0 16 16');
+
+    var pathmulher = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pathmulher.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z');
+    pathmulher.setAttribute('id', 'mulhermenos');
+    svgmenosmulher.appendChild(pathmulher);
+    row.appendChild(svgmenosmulher);
+
+    // Adicionando o elemento de conteúdo ao elemento principal
+    newDiv.appendChild(contentDiv);
+
+    // Seleciona o elemento com a classe container-card
+    var container = document.querySelector('.container-card');
+
+    // Adiciona o novo elemento div ao elemento com a classe container-card
+    container.appendChild(newDiv);
+
+    let homem = 0;
+    let mulher = 0;
+    let total = 0;
+
+    let btnHomemMais = document.getElementById("homemmais");
+    btnHomemMais.onclick = function() {
+        homem++;
+        document.getElementById("quantidadeHomem").textContent = homem;
+        total = homem + mulher;
+        document.getElementById("total").textContent = total;
+    };
+
+    let btnHomemMenos = document.getElementById("homemmenos");
+    btnHomemMenos.onclick = function() {
+        if (homem > 0) {
+            homem--;
+            document.getElementById("quantidadeHomem").textContent = homem;
+            total = homem + mulher;
+            document.getElementById("total").textContent = total;
+        }
+    };
+
+    let btnMulherMais = document.getElementById("mulhermais");
+    btnMulherMais.onclick = function() {
+        mulher++;
+        document.getElementById("quantidadeMulher").textContent = mulher;
+        total = homem + mulher;
+        document.getElementById("total").textContent = total;
+    };
+
+    let btnMulherMenos = document.getElementById("mulhermenos");
+    btnMulherMenos.onclick = function () {
+        if (mulher > 0) {
+            mulher--;
+            document.getElementById("quantidadeMulher").textContent = mulher;
+            total = homem + mulher;
+            document.getElementById("total").textContent = total;
+        }
+    };
+
+    </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
