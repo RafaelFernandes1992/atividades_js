@@ -11,7 +11,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh; 
+                height: 110vh; 
             }
         </style>
 
@@ -40,6 +40,13 @@
     newDiv.className = 'card';
     newDiv.style.width = '22rem';
 
+    var atualizar = document.createElement('button');
+    atualizar.className = 'btn btn-success';
+    atualizar.textContent = 'Atualizar';
+    atualizar.addEventListener('click', function() {
+    location.reload();
+    })
+
     var title = document.createElement('h6');
     title.className = 'card-title text-center';
     title.textContent = 'Total';
@@ -51,9 +58,11 @@
 
     var contentDiv = document.createElement('div');
     contentDiv.className = 'card-body';
+    contentDiv.appendChild(atualizar);
     contentDiv.appendChild(title);
     contentDiv.appendChild(alerta);
-
+    
+     
     // elementos do homem
 
     var card = document.createElement('div');
