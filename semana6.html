@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6ª Semana - Rafael</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .calculadora {
+        width: 200px;
+        padding: 10px;
+        background-color: #000000;
+        transition: background-color 0.3s ease;
+    }
+    .calculadora input[type="button"]:hover {
+        background-color: #555 !important; 
+    }
+    .calculadora input[type="button"] {
+        width: 45px;
+        height: 45px;
+        margin: 2px;
+        border-radius: 100%;
+        border: none;
+        background-color: #35332ad3;
+        cursor: pointer;
+        font-size: large;
+        color: azure;
+        
+    }
+    .laranja {
+        background-color: orange !important;
+        font-weight: bold;
+    }
+    .cinza {
+        background-color: rgb(189, 189, 189) !important;
+        color: black !important;
+        font-weight: bold;
+    }
+    .calculadora input[type="button"].zero {
+        width: calc(45px * 2 + 4px); /* Largura de dois botões mais a margem entre eles */
+    }
+    .calculadora input[type="text"] {
+        width: 98%;
+        margin-bottom: 5px;
+        padding: 20px;
+        border: none;
+        box-sizing: border-box;
+        font-size: x-large;
+        color: aliceblue;
+        background-color: #000000d3;
+        text-align: right;
+    }
+</style>
+</head>
+<body>
+
+<h1>Atividades da Sexta Semana - 26/03/2024</h1>
+<br>
+<div class="calculadora"></div>
+<br>
+<br>
+<br>
+<button><a href="index.html">Voltar</a></button>
+<br>
+<p>Aluno: <b>Rafael Fernandes de Melo Lopes</b></p>
+
+<script>
+    const calculadoraDiv = document.querySelector('.calculadora');
+    const display = document.createElement('input');
+    display.setAttribute('type', 'text');
+    display.setAttribute('id', 'display');
+    display.setAttribute('disabled', 'true');
+    calculadoraDiv.appendChild(display);
+
+    const buttons = [
+        'AC','+/-','%','/',
+        '7', '8', '9', '*',
+        '4', '5', '6', '-',
+        '1', '2', '3', '+',
+        '0', '.', '='
+    ];
+
+    buttons.forEach(function(valorBotao){
+        if (valorBotao !== ' ') { 
+            const botao = document.createElement('input');
+            botao.setAttribute('type', 'button');
+            botao.setAttribute('value', valorBotao);
+            if (valorBotao === '/' || valorBotao === '*' || valorBotao === '-' || valorBotao === '+' || valorBotao === '=') {
+                botao.classList.add('laranja');
+            }
+            if (valorBotao === 'AC' || valorBotao === '+/-' || valorBotao === '%'){
+                botao.classList.add('cinza');
+            }
+            if (valorBotao === '0') {
+                botao.setAttribute('class', 'zero');
+            }
+            calculadoraDiv.appendChild(botao);
+        }
+    });
+
+    let expression = '';
+
+    calculadoraDiv.addEventListener('click', function(event) {
+        if (event.target.tagName === 'INPUT') {
+            const valorBotao = event.target.value;
+            if (valorBotao === '=') {
+                try {
+                    expression = eval(expression);
+                    display.value = expression;
+                } catch (error) {
+                    display.value = 'Erro';
+                }
+            } else if (valorBotao === 'AC') {
+                expression = '';
+                display.value = '';
+            } else if (valorBotao === '+/-') {
+                expression = parseFloat(expression) * - 1;
+                display.value = expression;
+            } else if (valorBotao === '%') {
+                if (!isNaN(expression)) {
+                    expression = parseFloat(expression) / 100;
+                    display.value = expression.toFixed(2);
+                } else {
+                    expression = eval(expression);
+                    expression = parseFloat(expression) / 100;
+                    display.value = expression.toFixed(2);
+                }
+            }
+            else {
+                expression = expression + valorBotao;
+                display.value = expression;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
