@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7ª Semana - Rafael</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>Atividades da Sétima Semana - 02/04/2024</h1>
+    <br>
+    <div style="color: rgb(149, 36, 36);" id="letreiro"></div>
+    <br>
+    <button><a href="index.html">Voltar</a></button>
+    <br>
+    <p>Aluno: <b>Rafael Fernandes de Melo Lopes</b></p>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+  
+      function Letreiro() {
+        const [text, setText] = useState('');
+        const mensagem = 'Venha estudar na Fatec';
+  
+        useEffect(function() {
+
+            let indice = 0;
+            
+            const intervalo = setInterval(
+                function() {
+                    setText(function(oldText){return oldText + mensagem[indice];});
+                    indice = indice + 1;
+                    if (indice === mensagem.length) clearInterval(intervalo);
+                }, 250);
+
+            return function() {
+                clearInterval(intervalo);
+            };
+        }, []);
+
+        return (
+          <div>
+            <h1>{text}</h1>
+          </div>
+        );
+      }
+  
+      ReactDOM.render(<Letreiro />, document.getElementById('letreiro'));
+    </script>
+    
+</body>
+</html>
